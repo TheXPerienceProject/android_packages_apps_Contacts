@@ -92,6 +92,7 @@
     <string name="multipleContactDeleteConfirmation" msgid="2970218685653877287">"删除此联系人也将删除多个帐号中的相关详细信息。"</string>
     <string name="deleteConfirmation" msgid="3727809366015979585">"要删除此联系人吗？"</string>
     <string name="deleteConfirmation_positive_button" msgid="1604511403421785160">"删除"</string>
+    <string name="delete_contacts_title">删除联系人</string>
     <string name="invalidContactMessage" msgid="6204402264821083362">"该联系人不存在。"</string>
     <string name="createContactShortcutSuccessful_NoName" msgid="532242135930208299">"已将该联系人添加到主屏幕。"</string>
     <string name="createContactShortcutSuccessful" msgid="6980032407920515698">"已将<xliff:g id="NAME">%s</xliff:g>添加到主屏幕。"</string>
@@ -135,6 +136,7 @@
     <string name="missing_app" msgid="5674389915738964148">"未找到可处理此操作的应用。"</string>
     <string name="menu_share" msgid="6343022811796001773">"分享"</string>
     <string name="menu_add_contact" msgid="5822356185421997656">"添加到通讯录"</string>
+    <string name="menu_select_all">全选</string>
     <string name="menu_add_contacts" msgid="7114262784903366463">"添加"</string>
     <plurals name="title_share_via" formatted="false" msgid="3868648642107664607">
       <item quantity="other">通过以下应用分享联系人</item>
@@ -163,8 +165,10 @@
     <string name="contact_directory_description" msgid="1773630547110881835">"目录类型：<xliff:g id="TYPE">%1$s</xliff:g>"</string>
     <string name="activity_title_settings" msgid="4004290638426915162">"设置"</string>
     <string name="menu_settings" msgid="3524924670246877187">"设置"</string>
+    <string name="menu_sim_contacts">"SIM卡联系人"</string>
     <string name="menu_help" msgid="287801702920372292">"帮助和反馈"</string>
-    <string name="organization_company_and_title" msgid="7197631449041284518">"<xliff:g id="COMPANY_0">%2$s</xliff:g>，<xliff:g id="COMPANY_1">%1$s</xliff:g>"</string>
+    <string name="organization_entry_two_field" msgid="6034934619269052455">"<xliff:g id="FIRST">%1$s</xliff:g> • <xliff:g id="SECOND">%2$s</xliff:g>"</string>
+    <string name="organization_entry_all_field" msgid="6724345890324437167">"<xliff:g id="COMPANY">%1$s</xliff:g> • <xliff:g id="DEPARTMENT">%2$s</xliff:g> • <xliff:g id="TITLE">%3$s</xliff:g>"</string>
     <string name="non_phone_caption" msgid="7343449684187013327">"电话号码"</string>
     <string name="non_phone_add_to_contacts" msgid="5472784294274676663">"添加到通讯录"</string>
     <string name="non_phone_close" msgid="2792373584950696532">"关闭"</string>
@@ -324,6 +328,7 @@
     <string name="sms" msgid="4246338112764847384">"短信"</string>
     <string name="postal_address" msgid="5031809899673855074">"地址"</string>
     <string name="ghostData_company" msgid="3873500610390675876">"公司"</string>
+    <string name="ghostData_department" msgid="8610642449404163799">"部门"</string>
     <string name="ghostData_title" msgid="8584897460662904533">"职位"</string>
     <string name="label_notes" msgid="7134226125644463585">"备注"</string>
     <string name="label_custom_field" msgid="4160584225306364924">"自定义"</string>

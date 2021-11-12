@@ -540,7 +540,6 @@ public class PhoneNumberListAdapter extends ContactEntryListAdapter {
         if (!cursor.isNull(PhoneQuery.PHOTO_ID)) {
             photoId = cursor.getLong(PhoneQuery.PHOTO_ID);
         }
-
         if (photoId != 0) {
             getPhotoLoader().loadThumbnail(view.getPhotoView(), photoId, false,
                     getCircularPhotos(), null);

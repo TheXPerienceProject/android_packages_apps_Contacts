@@ -710,7 +710,6 @@ public abstract class ContactEntryListAdapter extends IndexerListAdapter {
         if (!cursor.isNull(photoIdColumn)) {
             photoId = cursor.getLong(photoIdColumn);
         }
-
         QuickContactBadge quickContact = view.getQuickContact();
         quickContact.assignContactUri(
                 getContactUri(partitionIndex, cursor, contactIdColumn, lookUpKeyColumn));

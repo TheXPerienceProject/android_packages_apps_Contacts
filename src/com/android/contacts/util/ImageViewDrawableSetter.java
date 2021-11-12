@@ -30,7 +30,6 @@ import com.android.contacts.ContactPhotoManager;
 import com.android.contacts.ContactPhotoManager.DefaultImageRequest;
 import com.android.contacts.lettertiles.LetterTileDrawable;
 import com.android.contacts.model.Contact;
-
 import java.util.Arrays;
 
 /**

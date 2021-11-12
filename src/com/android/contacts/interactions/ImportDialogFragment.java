@@ -35,6 +35,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.contacts.R;
 import com.android.contacts.activities.SimImportActivity;
@@ -48,6 +49,7 @@ import com.android.contacts.model.SimContact;
 import com.android.contacts.model.account.AccountInfo;
 import com.android.contacts.model.account.AccountWithDataSet;
 import com.android.contacts.util.AccountSelectionUtil;
+import com.android.contacts.util.ImplicitIntentsUtil;
 import com.google.common.util.concurrent.Futures;
 
 import java.util.List;
@@ -237,16 +239,20 @@ public class ImportDialogFragment extends DialogFragment {
             adapter.add(new AdapterEntry(getString(R.string.import_from_vcf_file),
                     R.string.import_from_vcf_file));
         }
-        final List<SimCard> sims = mSimDao.getSimCards();
+        if (!ImplicitIntentsUtil.checkIntentIfExists(getActivity(),
+                ImplicitIntentsUtil.getIntentForSimContactsManagement())) {
+            final List<SimCard> sims = mSimDao.getSimCards();
 
-        if (sims.size() == 1) {
-            adapter.add(new AdapterEntry(getString(R.string.import_from_sim),
-                    R.string.import_from_sim, sims.get(0)));
-            return;
-        }
-        for (int i = 0; i < sims.size(); i++) {
-            final SimCard sim = sims.get(i);
-            adapter.add(new AdapterEntry(getSimDescription(sim, i), R.string.import_from_sim, sim));
+            if (sims.size() == 1) {
+                adapter.add(new AdapterEntry(getString(R.string.import_from_sim),
+                        R.string.import_from_sim, sims.get(0)));
+                return;
+            }
+            for (int i = 0; i < sims.size(); i++) {
+                final SimCard sim = sims.get(i);
+                adapter.add(new AdapterEntry(getSimDescription(sim, i),
+                        R.string.import_from_sim, sim));
+            }
         }
     }
 
@@ -259,6 +265,11 @@ public class ImportDialogFragment extends DialogFragment {
      * Handle "import from SD".
      */
     private void handleImportRequest(int resId, int subscriptionId) {
+        //if the accounts is not initial complete, give a toast here.
+        if (mAccountsFuture == null) {
+            Toast.makeText(getActivity(), R.string.vcard_import_failed, Toast.LENGTH_SHORT).show();
+            return;
+        }
         // Get the accounts. Because this only happens after a user action this should pretty
         // much never block since it will usually be at least several seconds before the user
         // interacts with the view

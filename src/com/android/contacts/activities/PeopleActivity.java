@@ -736,7 +736,7 @@ public class PeopleActivity extends AppCompatContactsActivity implements
             fragment.updateStatus(mProviderStatus);
         }
         if (!transaction.isEmpty()) {
-            transaction.commit();
+            transaction.commitAllowingStateLoss();
             fragmentManager.executePendingTransactions();
         }
 
@@ -1192,6 +1192,16 @@ public class PeopleActivity extends AppCompatContactsActivity implements
     @Override
     public void onLaunchHelpFeedback() {
         HelpUtils.launchHelpAndFeedbackForMainScreen(this);
+    }
+
+    @Override
+    public void onLaunchSimContactsManagement() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(ImplicitIntentsUtil.getIntentForSimContactsManagement());
+            }
+        }, DRAWER_CLOSE_DELAY);
     }
 
     @Override

@@ -286,6 +286,8 @@ public class DrawerFragment extends Fragment implements AccountsListener {
                 mListener.onEmergencyViewSelected();
             } else if (viewId == R.id.nav_settings) {
                 mListener.onOpenSettings();
+            } else if (viewId ==  R.id.nav_sim_contacts) {
+                mListener.onLaunchSimContactsManagement();
             } else if (viewId == R.id.nav_help) {
                 mListener.onLaunchHelpFeedback();
             } else {
@@ -345,6 +347,7 @@ public class DrawerFragment extends Fragment implements AccountsListener {
         void onLaunchHelpFeedback();
         void onProfileViewSelected(long profileContactId);
         void onEmergencyViewSelected();
+        void onLaunchSimContactsManagement();
     }
 
     private class WindowInsetsListener implements View.OnApplyWindowInsetsListener {

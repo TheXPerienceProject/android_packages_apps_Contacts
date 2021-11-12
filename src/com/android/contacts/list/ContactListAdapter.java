@@ -50,7 +50,7 @@ public abstract class ContactListAdapter extends MultiSelectEntryContactListAdap
             Contacts.PHOTO_THUMBNAIL_URI,           // 5
             Contacts.LOOKUP_KEY,                    // 6
             Contacts.PHONETIC_NAME,                 // 7
-            Contacts.STARRED,                       // 9
+            Contacts.STARRED,                       // 8
         };
 
         private static final String[] CONTACT_PROJECTION_ALTERNATIVE = new String[] {
@@ -252,7 +252,6 @@ public abstract class ContactListAdapter extends MultiSelectEntryContactListAdap
         if (!cursor.isNull(ContactQuery.CONTACT_PHOTO_ID)) {
             photoId = cursor.getLong(ContactQuery.CONTACT_PHOTO_ID);
         }
-
         if (photoId != 0) {
             getPhotoLoader().loadThumbnail(view.getPhotoView(), photoId, false,
                     getCircularPhotos(), null);

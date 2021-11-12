@@ -157,7 +157,6 @@ public class ShortcutIntentBuilder {
         protected String mLookupKey;
         protected byte[] mBitmapData;
         protected long mPhotoId;
-
         public LoadingAsyncTask(Uri uri) {
             mUri = uri;
         }
@@ -193,6 +192,7 @@ public class ShortcutIntentBuilder {
     }
 
     private final class ContactLoadingAsyncTask extends LoadingAsyncTask {
+
         public ContactLoadingAsyncTask(Uri uri) {
             super(uri);
         }

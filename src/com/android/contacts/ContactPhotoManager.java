@@ -473,7 +473,6 @@ public abstract class ContactPhotoManager implements ComponentCallbacks2 {
         loadThumbnail(view, photoId, darkTheme, isCircular, defaultImageRequest, DEFAULT_AVATAR);
     }
 
-
     /**
      * Load photo into the supplied image view. If the photo is already cached,
      * it is displayed immediately. Otherwise a request is sent to load the photo
@@ -602,8 +601,8 @@ class ContactPhotoManagerImpl extends ContactPhotoManager implements Callback {
     private static final String[] COLUMNS = new String[] { Photo._ID, Photo.PHOTO };
 
     /**
-     * Dummy object used to indicate that a bitmap for a given key could not be stored in the
-     * cache.
+     * Placeholder object used to indicate that a bitmap for a given key could not
+     * be stored in the cache.
      */
     private static final BitmapHolder BITMAP_UNAVAILABLE;
 

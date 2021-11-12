@@ -165,7 +165,7 @@ public abstract class MultiSelectEntryContactListAdapter extends ContactEntryLis
       * @param displayNameColumn Index of the display name column
       */
     protected void bindPhoto(final ContactListItemView view, final Cursor cursor,
-           final int photoIdColumn, final int lookUpKeyColumn, final int displayNameColumn) {
+            final int photoIdColumn, final int lookUpKeyColumn, final int displayNameColumn) {
         final long photoId = cursor.isNull(photoIdColumn)
             ? 0 : cursor.getLong(photoIdColumn);
         final ContactPhotoManager.DefaultImageRequest imageRequest = photoId == 0

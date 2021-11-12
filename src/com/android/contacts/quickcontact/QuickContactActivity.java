@@ -1459,10 +1459,10 @@ public class QuickContactActivity extends ContactsActivity {
         } else if (dataItem instanceof OrganizationDataItem) {
             final OrganizationDataItem organization = (OrganizationDataItem) dataItem;
             header = res.getString(R.string.header_organization_entry);
-            subHeader = organization.getCompany();
             entryContextMenuInfo = new EntryContextMenuInfo(subHeader, header,
-                    dataItem.getMimeType(), dataItem.getId(), dataItem.isSuperPrimary());
-            text = organization.getTitle();
+                dataItem.getMimeType(), dataItem.getId(), dataItem.isSuperPrimary());
+            text = ContactDisplayUtils
+                .getFormattedCompanyString(context, (OrganizationDataItem) dataItem, false);
         } else if (dataItem instanceof NicknameDataItem) {
             final NicknameDataItem nickname = (NicknameDataItem) dataItem;
             // Build nickname entries
@@ -2347,7 +2347,6 @@ public class QuickContactActivity extends ContactsActivity {
             ContactDisplayUtils.configureStarredMenuItem(starredMenuItem,
                     mContactData.isDirectoryEntry(), mContactData.isUserProfile(),
                     mContactData.getStarred());
-
             // Configure edit MenuItem
             final MenuItem editMenuItem = menu.findItem(R.id.menu_edit);
             editMenuItem.setVisible(true);

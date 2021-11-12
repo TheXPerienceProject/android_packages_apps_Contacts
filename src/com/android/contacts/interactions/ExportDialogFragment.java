@@ -41,6 +41,7 @@ import android.widget.Toast;
 import com.android.contacts.R;
 import com.android.contacts.util.ImplicitIntentsUtil;
 import com.android.contacts.vcard.ExportVCardActivity;
+import com.android.contacts.model.SimCard;
 import com.android.contacts.vcard.ShareVCardActivity;
 import com.android.contacts.vcard.VCardCommonArguments;
 
@@ -61,7 +62,6 @@ public class ExportDialogFragment extends DialogFragment {
     };
 
     private SubscriptionManager mSubscriptionManager;
-
     /** Preferred way to show this dialog */
     public static void show(FragmentManager fragmentManager, Class callingActivity,
             int exportMode) {
@@ -91,7 +91,6 @@ public class ExportDialogFragment extends DialogFragment {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final String callingActivity = getArguments().getString(
                 VCardCommonArguments.ARG_CALLING_ACTIVITY);
-
         // Adapter that shows a list of string resources
         final ArrayAdapter<AdapterEntry> adapter = new ArrayAdapter<AdapterEntry>(getActivity(),
                 R.layout.select_dialog_item) {
@@ -217,18 +216,18 @@ public class ExportDialogFragment extends DialogFragment {
     private static class AdapterEntry {
         public final CharSequence mLabel;
         public final int mChoiceResourceId;
-        public final int mSubscriptionId;
+        public final SimCard mSim;
 
-        public AdapterEntry(CharSequence label, int resId, int subId) {
+        public AdapterEntry(CharSequence label, int resId, SimCard sim) {
             mLabel = label;
             mChoiceResourceId = resId;
-            mSubscriptionId = subId;
+            mSim = sim;
         }
 
         public AdapterEntry(String label, int resId) {
             // Store a nonsense value for mSubscriptionId. If this constructor is used,
             // the mSubscriptionId value should not be read later.
-            this(label, resId, /* subId = */ -1);
+            this(label, resId, /* subId = */ null);
         }
     }
 }
